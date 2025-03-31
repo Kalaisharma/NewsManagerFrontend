@@ -1,8 +1,6 @@
 import { NewsClient } from "../Client/Client";
-
 export const Newsservice = async () => {
-    const API_KEY = process.env.NEWS_API_KEY;
-    const response = await NewsClient(`https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=${API_KEY}`, 'GET');
+    const response = await NewsClient(`https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=d3a13558d2714ec6b5c5fc99385becd3`, 'GET');
     return response;
 }
 
