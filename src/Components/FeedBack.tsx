@@ -10,7 +10,6 @@ import {
 } from "@mui/material";
 //import SearchIcon from "@mui/icons-material/Search";
 import { FeedbackContext } from "../App";
-import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { FeedbackData } from "../Service/NewsServics";
 
@@ -286,7 +285,6 @@ const FeedbackForm = () => {
     name: string;
     code: string;
   }
-const navigate = useNavigate();
   const [selectedCountry, setSelectedCountry] = useState<Country | null>(null);
   const [selectedState, setSelectedState] = useState<string | null>(null);
   const [selectedCountryCode, setSelectedCountryCode] = useState("+00");
@@ -294,7 +292,7 @@ const navigate = useNavigate();
   if (!feedbackcontext) {
     throw new Error("FeedbackForm must be used within a FeedbackProvider");
   }
-  const { feedBackview, setfeedbackView } = feedbackcontext;
+  const {setfeedbackView } = feedbackcontext;
   const [formData, setFormData] = useState({
     fullName: "",
     address: "",
@@ -343,7 +341,6 @@ const navigate = useNavigate();
 
   const handleSubmit = () => {
     if (validate()) {
-      //setFormData({...})
       console.log("Form Data:", {
         ...formData,
         country:selectedCountry,

@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Newsservice } from "../Service/NewsServics";
-import { useNavigate } from "react-router-dom";
 import "../Stylesheet/NewsPagestyle.css";
 import FeedbackForm from "./FeedBack";
 import { FeedbackContext } from "../App";
@@ -50,7 +49,6 @@ if (!feedback_Context) {
   
 
   const toggleView = (mode: "card" | "list") => setViewMode(mode);
-  const navigate = useNavigate();
   const paginatedData = newsData.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
