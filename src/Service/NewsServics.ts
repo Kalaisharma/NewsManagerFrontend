@@ -4,8 +4,8 @@ export const Newsservice = async () => {
     console.log(response,"response");
     return response;
 }
-
+//localhost: http://localhost:5000/news/start
 export const FeedbackData = async (data: any) => {
-    const response = await NewsClient(`http://localhost:5000/news/start`, 'POST',data);
+    const response = await NewsClient(`https://news-manager-backend-he1g.onrender.com`, 'POST',data);
     return response;
 }
