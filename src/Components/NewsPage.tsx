@@ -3,7 +3,7 @@ import { Newsservice } from "../Service/NewsServics";
 import "../Stylesheet/NewsPagestyle.css";
 import FeedbackForm from "./FeedBack";
 import { FeedbackContext } from "../App";
-
+import Newsdata from '../NewsJSON/NewsJson.json';
 const App: React.FC = () => {
   useEffect(() => {
     
@@ -31,15 +31,17 @@ if (!feedback_Context) {
       timeZone: "UTC",
     });
   };
+  const newsdata:any = Newsdata;
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await Newsservice();
-        if ((response.data.status = "ok")) {
+        if ((response.status ===200)) {
           console.log(response.data.articles);
           setNewsdata(response.data.articles);
         }
       } catch (error) {
+        setNewsdata(newsdata);
         console.error("Error fetching data:", error);
       }
     };
@@ -59,7 +61,10 @@ if (!feedback_Context) {
     <div className="container">
       <aside className="sidebar">
         <div className="profile-card">
-          <img src="https://via.placeholder.com/50" alt="Profile" />
+          <img
+            src="https://th.bing.com/th/id/OIP.3EI6ZQqf6ws0Rv2mVHkHlwHaHa?rs=1&pid=ImgDetMain"
+            alt="Profile"
+          />
           <div>
             <p>Hi Reader,</p>
             <p>Here's your News!</p>
@@ -138,7 +143,11 @@ if (!feedback_Context) {
               />
               <div>
                 <h4>{item.title}</h4>
-                <p>{item.description}</p>
+                <p>
+                  {item.description === null
+                    ? "Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia aut magni debitis dolores dicta amet eum, quam sed, quia perferendis modi! Doloremque illo magnam porro non quod? Asperiores, similique repudiandae"
+                    : item.description}
+                </p>
                 <p>{formatDate(item.publishedAt)}</p>
               </div>
               <div className={`close-btn-${viewMode}`}>
