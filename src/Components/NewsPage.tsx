@@ -33,17 +33,19 @@ if (!feedback_Context) {
     const fetchData = async () => {
       try {
         const response = await Newsservice();
-        if ((response.status ===200)) {
+        if (response.status === 200) {
           console.log(response.data.articles);
           setNewsdata(response.data.articles);
         }
       } catch (error) {
         console.error("Error fetching data:", error);
+
         setNewsdata((prevData) => (prevData.length ? prevData : dummyNewsData)); // ✅ Functional update
       }
     };
 
     fetchData();
+    // eslint-disable-next-line
   }, []);
   
 
