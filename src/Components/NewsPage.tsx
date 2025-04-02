@@ -44,7 +44,7 @@ if (!feedback_Context) {
     };
 
     fetchData();
-  }, [newsData]);
+  }, []);
   
 
   const toggleView = (mode: "card" | "list") => setViewMode(mode);
