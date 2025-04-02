@@ -28,7 +28,7 @@ if (!feedback_Context) {
       timeZone: "UTC",
     });
   };
-  const newsdata:any = Newsdata;
+  const dummyNewsData: any = Newsdata;
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -38,8 +38,8 @@ if (!feedback_Context) {
           setNewsdata(response.data.articles);
         }
       } catch (error) {
-        setNewsdata(newsdata);
         console.error("Error fetching data:", error);
+        setNewsdata((prevData) => (prevData.length ? prevData : dummyNewsData)); // ✅ Functional update
       }
     };
 
