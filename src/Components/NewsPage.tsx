@@ -5,9 +5,6 @@ import FeedbackForm from "./FeedBack";
 import { FeedbackContext } from "../App";
 import Newsdata from '../NewsJSON/NewsJson.json';
 const App: React.FC = () => {
-  useEffect(() => {
-    
-    }, []);
   const [viewMode, setViewMode] = useState<"card" | "list">("card");
 const feedback_Context = useContext(FeedbackContext);
 if (!feedback_Context) {
