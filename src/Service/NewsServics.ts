@@ -1,6 +1,4 @@
 import { NewsClient } from "../Client/Client";
-import dotenv from 'dotenv';
-dotenv.config();
 
 export const Newsservice = async () => {
     const response = await NewsClient(`https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=d3a13558d2714ec6b5c5fc99385becd3`, 'GET');
@@ -9,7 +7,7 @@ export const Newsservice = async () => {
 }
 //
 export const FeedbackData = async (data: any) => {
-    const BASE_URL = process.env.BASE_URL || 'http://localhost:5000';
+    const BASE_URL = process.env.REACT_APP_BASE_URL || 'http://localhost:5000';
     const response = await NewsClient(`${BASE_URL}/news/start`, 'POST',data);
     return response;
 }
