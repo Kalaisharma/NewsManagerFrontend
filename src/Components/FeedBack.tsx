@@ -339,7 +339,7 @@ const FeedbackForm = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async() => {
     if (validate()) {
       console.log("Form Data:", {
         ...formData,
@@ -348,7 +348,15 @@ const FeedbackForm = () => {
       });
       feedBackPopup();
       setfeedbackView(false); // Close the feedback form
-      FeedbackData(formData)
+      try {
+        const response = FeedbackData(formData); 
+        console.log("Feedback submitted successfully:", response);
+        alert("success!");
+      }
+      catch (error) {
+        console.error("Error submitting feedback:", error);
+      }
+      
     }
   };
   const feedBackPopup = () => {
