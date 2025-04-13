@@ -7,7 +7,7 @@ export const Newsservice = async () => {
 }
 //
 export const FeedbackData = async (data: any) => {
-    const BASE_URL = process.env.REACT_APP_BASE_URL || 'http://localhost:5000';
+    const BASE_URL = process.env.REACT_APP_BASE_URL;
     const response = await NewsClient(`${BASE_URL}/news/start`, 'POST',data);
     return response;
 }
