@@ -346,11 +346,11 @@ const FeedbackForm = () => {
         country:selectedCountry,
         state:selectedState,
       });
-      feedBackPopup();
-      setfeedbackView(false); // Close the feedback form
       try {
-        const response = FeedbackData(formData); 
+        const response = FeedbackData(formData);
         console.log("Feedback submitted successfully:", response);
+        feedBackPopup();
+        setfeedbackView(false); // Close the feedback form
         alert("success!");
       }
       catch (error) {
